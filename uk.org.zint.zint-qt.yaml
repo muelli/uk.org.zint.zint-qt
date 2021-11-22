@@ -18,26 +18,18 @@ finish-args:
   - "--filesystem=xdg-documents:rw"
 modules:
   - name: zint-qt
-    buildsystem: cmake-ninja
+    buildsystem: cmake
     build-commands:
       - install -D uk.org.zint.zint-qt.appdata.xml /app/share/metainfo/uk.org.zint.zint-qt.appdata.xml
       - install -Dm644 zint-qt-flatpak.desktop /app/share/applications/uk.org.zint.zint-qt.desktop
-      - install -Dm644 zint-64.svg /app/share/icons/hicolor/scalable/apps/uk.org.zint.zint-qt.svg
-      - install -Dm644 zint-64.png /app/share/icons/hicolor/64x64/apps/uk.org.zint.zint-qt.png
-      - install -Dm644 zint-128.png /app/share/icons/hicolor/128x128/apps/uk.org.zint.zint-qt.png
+      - install -Dm644 frontend_qt/images/scalable/zint-qt.svg /app/share/icons/hicolor/scalable/apps/uk.org.zint.zint-qt.svg
     sources:
       - type: archive
-        url: https://kumisystems.dl.sourceforge.net/project/zint/zint/2.9.1/zint-2.9.1-src.tar.gz
-        sha256: bd286d863bc60d65a805ec3e46329c5273a13719724803b0ac02e5b5804c596a
+        url: https://deac-riga.dl.sourceforge.net/project/zint/zint/2.10.0/zint-2.10.0-src.tar.gz
+        sha256: bb97e98a32e140c344e92c8da84a9df413dca16083f2fcdc29791bec77350339
       - type: file
         path: uk.org.zint.zint-qt.appdata.xml
       - type: file
         path: zint-qt-flatpak.desktop
-      - type: file
-        path: zint-64.png
-      - type: file
-        path: zint-64.svg
-      - type: file
-        path: zint-128.png
       - type: patch
         path: clipboard.patch
