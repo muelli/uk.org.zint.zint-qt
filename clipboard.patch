@@ -1,82 +1,37 @@
 diff -c -r a/frontend_qt/mainwindow.cpp b/frontend_qt/mainwindow.cpp
-*** a/frontend_qt/mainwindow.cpp	2021-08-14 16:03:24.000000000 +0200
---- b/frontend_qt/mainwindow.cpp	2021-11-22 18:29:07.181124441 +0100
+*** a/frontend_qt/mainwindow.cpp	2022-05-24 22:08:51.000000000 +0200
+--- b/frontend_qt/mainwindow.cpp	2022-06-25 21:18:23.974615664 +0200
 ***************
-*** 28,33 ****
---- 28,34 ----
+*** 27,32 ****
+--- 27,33 ----
   #include <QClipboard>
   #include <QMimeData>
   #include <QColor>
 + #include <QtGlobal>
   #include <QListView>
   #include <QShortcut>
-  
+  #include <QMenu>
 ***************
-*** 565,571 ****
-  void MainWindow::copy_to_clipboard_svg()
-  {
-      QClipboard *clipboard = QGuiApplication::clipboard();
-!     QString filename = ".zint.svg";
-      double scale = spnScale->value();
-  
-      spnScale->setValue(5);
---- 566,572 ----
-  void MainWindow::copy_to_clipboard_svg()
-  {
-      QClipboard *clipboard = QGuiApplication::clipboard();
-!     QString filename = QString::fromLocal8Bit(qgetenv("XDG_RUNTIME_DIR")).append("/app/uk.org.zint.zint-qt/.zint.svg");
-      double scale = spnScale->value();
-  
-      spnScale->setValue(5);
-***************
-*** 579,585 ****
-      mdata->setImageData(QImage(filename));
-      clipboard->setMimeData(mdata, QClipboard::Clipboard);
-  
-!     QFile::remove(filename);
-  
-      spnScale->setValue(scale);
+*** 2636,2644 ****
+      m_copyTIFShortcut->setEnabled(enabled);
   }
---- 580,586 ----
-      mdata->setImageData(QImage(filename));
-      clipboard->setMimeData(mdata, QClipboard::Clipboard);
   
-!     //QFile::remove(filename);
-  
-      spnScale->setValue(scale);
-  }
-***************
-*** 587,593 ****
-  void MainWindow::copy_to_clipboard_bmp()
+! void MainWindow::copy_to_clipboard(const QString &filename, const QString& name, const char *mimeType)
   {
       QClipboard *clipboard = QGuiApplication::clipboard();
-!     QString filename = ".zint.bmp";
   
       if (!m_bc.bc.save_to_file(filename)) {
           return;
---- 588,594 ----
-  void MainWindow::copy_to_clipboard_bmp()
+--- 2637,2647 ----
+      m_copyTIFShortcut->setEnabled(enabled);
+  }
+  
+! void MainWindow::copy_to_clipboard(const QString &in_filename, const QString& name, const char *mimeType)
   {
       QClipboard *clipboard = QGuiApplication::clipboard();
-!     QString filename = QString::fromLocal8Bit(qgetenv("XDG_RUNTIME_DIR")).append("/app/uk.org.zint.zint-qt/.zint.svg");
++     
++     auto filename = QString::fromLocal8Bit(qgetenv("XDG_RUNTIME_DIR")).append("/app/uk.org.zint.zint-qt/").append(in_filename);
   
       if (!m_bc.bc.save_to_file(filename)) {
           return;
-***************
-*** 597,603 ****
-      mdata->setImageData(QImage(filename));
-      clipboard->setMimeData(mdata, QClipboard::Clipboard);
-  
-!     QFile::remove(filename);
-  }
-  
-  void MainWindow::change_options()
---- 598,604 ----
-      mdata->setImageData(QImage(filename));
-      clipboard->setMimeData(mdata, QClipboard::Clipboard);
-  
-!     //QFile::remove(filename);
-  }
-  
-  void MainWindow::change_options()
 
