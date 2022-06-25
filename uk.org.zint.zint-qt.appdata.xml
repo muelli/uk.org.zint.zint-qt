@@ -12,33 +12,39 @@
   <screenshots>
     <screenshot type="default">
       <image>
-           https://a.fsdn.com/con/app/proj/zint/screenshots/2.10.0_ss_1.png/max/max/1
+           https://a.fsdn.com/con/app/proj/zint/screenshots/2.11.0_ss_1.png
       </image>
       <caption>Create barcodes from any data</caption>
     </screenshot>
     <screenshot>
       <image>
-           https://a.fsdn.com/con/app/proj/zint/screenshots/2.10.0_ss_2.png/max/max/1
+           https://a.fsdn.com/con/app/proj/zint/screenshots/2.11.0_ss_2.png
       </image>
       <caption>Add binding bars or boundary boxes</caption>
     </screenshot>
     <screenshot>
       <image>
-           https://a.fsdn.com/con/app/proj/zint/screenshots/2.10.0_ss_3.png/max/max/1
+           https://a.fsdn.com/con/app/proj/zint/screenshots/2.11.0_ss_3.png
       </image>
       <caption>Create composite symbols from GS1 data</caption>
     </screenshot>
     <screenshot>
       <image>
-           https://a.fsdn.com/con/app/proj/zint/screenshots/2.10.0_ss_4.png/max/max/1
+           https://a.fsdn.com/con/app/proj/zint/screenshots/2.11.0_ss_4.png
       </image>
       <caption>Create matrix symbols and specify symbol size</caption>
     </screenshot>
     <screenshot>
       <image>
-           https://a.fsdn.com/con/app/proj/zint/screenshots/2.10.0_ss_5.png/max/max/1
+           https://a.fsdn.com/con/app/proj/zint/screenshots/2.11.0_ss_5.png
       </image>
       <caption>Generate or import sequences of data to create multiple symbols</caption>
+    </screenshot>
+    <screenshot>
+      <image>
+           https://a.fsdn.com/con/app/proj/zint/screenshots/2.11.0_ss_6.png
+      </image>
+      <caption>Import larger chunks of text for encoding in a single symbol</caption>
     </screenshot>
   </screenshots>
   
