@@ -1,0 +1,21 @@
+diff -c -r a/CMakeLists.txt b/CMakeLists.txt
+*** a/CMakeLists.txt	2022-06-25 20:37:08.207101307 +0200
+--- b/CMakeLists.txt	2022-06-25 20:38:04.344313307 +0200
+***************
+*** 137,143 ****
+  
+  if(NOT ZINT_USE_QT)
+      message(STATUS "Qt support was disabled for this build")
+! elseif($ENV{CMAKE_PREFIX_PATH} MATCHES "6[.][0-9][.][0-9]")
+      set(USE_QT6 TRUE)
+      message(STATUS "Using Qt6")
+      cmake_policy(SET CMP0012 NEW) # Recognize constants in if()
+--- 137,143 ----
+  
+  if(NOT ZINT_USE_QT)
+      message(STATUS "Qt support was disabled for this build")
+! elseif(TRUE)
+      set(USE_QT6 TRUE)
+      message(STATUS "Using Qt6")
+      cmake_policy(SET CMP0012 NEW) # Recognize constants in if()
+
